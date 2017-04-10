@@ -1,5 +1,5 @@
 ---
 - hosts: all
   tasks:
-    - name: Remove GIT
-      yum: name=git state=absent
+    - name: Install GIT
+      yum: name=git state=installed
