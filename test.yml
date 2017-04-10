@@ -1,5 +1,6 @@
 ---
-- hosts: TEST
+- hosts: all
 tasks:
    - name: Install GIT
      yum: name=git state=installed
+#test
