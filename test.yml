@@ -1,6 +1,5 @@
 ---
-- hosts: all
-tasks:
-   - name: Install GIT
-     yum: name=git state=installed
-#test
+- hosts: TEST
+  tasks:
+    - name: Install GIT
+      yum: name=git state=installed
