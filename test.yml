@@ -1,5 +1,5 @@
 ---
 - hosts: TEST
   tasks:
-    - name: Install GIT
+    - name: Remove GIT
       yum: name=git state=absent
