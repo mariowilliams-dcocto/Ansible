@@ -128,15 +128,6 @@
       - notscored
       - section3.8
 
-  - name: 3.10 Remove FTP Server (Not Scored)
-    yum: >
-      name=vsftpd
-      state=absent
-    when: ftp
-    tags:
-      - notscored
-      - section3.10
-
   - name: 3.12 Remove Dovecot (IMAP and POP3 services) (Not Scored)
     yum: >
       name=dovecot
