@@ -123,7 +123,7 @@
       enabled=no
     when:
       - rpcbind.stat.exists
-      - nfs
+      - nfs_utils.stat.exists
     tags:
       - notscored
       - section3.8
