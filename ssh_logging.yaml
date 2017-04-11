@@ -1,0 +1,21 @@
+---
+- hosts: all
+     tasks:
+          - name: Enable Audit email
+		blockinfile:
+			path: /etc/profile
+			block: |
+				EMAIL_ARR=(mario.williams@dc.gov adil.mohammed@dc.gov clifford.asiedu@dc.gov anish.elayadathu@dc.gov)
+				if [ -n "$SSH_CLIENT" ]; then
+        	      		   if [ $UID -ne 1017 ]; then
+                                      TEXT="$(date): ssh login to ${USER}@$(hostname -f)"
+                                      TEXT="$TEXT from $(echo $SSH_CLIENT|awk '{print $1}')"
+                                      for i in "${EMAIL_ARR[@]}";do
+                                        echo $TEXT|mail -s "ssh login" ${i}
+               		    	      done
+        			fi
+	  - name: Enable Command Line Recording
+		- lineinfile:
+		      path: /etc/pam.d/system-auth
+		      state: present
+		      regexp: 'session\:wq
